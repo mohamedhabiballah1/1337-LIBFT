@@ -6,7 +6,7 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:32:25 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/13 17:19:19 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/13 20:36:06 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char **ft_split(char const *s, char c)
     char **str;
     int i;
     i = count_words(s, c);
-    str = malloc(sizeof(char *)  * i + 1);
+    str = malloc(sizeof(char *)  * i);
     if(str == NULL)
         return(NULL);
     lenwords(s, c, i, str);
