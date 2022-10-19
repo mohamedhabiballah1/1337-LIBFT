@@ -6,16 +6,18 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:26:17 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/16 20:51:25 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/18 12:06:04 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (i <= ft_strlen(s))
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);

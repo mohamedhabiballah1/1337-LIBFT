@@ -6,13 +6,15 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:23:02 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/16 21:17:13 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:55:48 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_toupper(int c)
 {
-	if (c >= 'a' && c < 'z')
+	if (c >= 'a' && c <= 'z')
 		c -= 32;
 	return (c);
 }

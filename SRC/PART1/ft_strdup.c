@@ -6,32 +6,24 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:36:12 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/16 21:12:05 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:48:22 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *s)
 {
 	char	*dest;
 	int		i;
 
 	i = 0;
-	dest = malloc (sizeof(char) * (ft_strlen(src) + 1));
+	dest = malloc (sizeof(char) * (ft_strlen(s) + 1));
 	if (dest == NULL)
 		return (NULL);
-	while (src[i])
+	while (s[i])
 	{
-		dest[i] = src[i];
+		dest[i] = s[i];
 		i++;
 	}
 	dest[i] = '\0';

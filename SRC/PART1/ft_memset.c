@@ -6,13 +6,15 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:16:43 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/16 19:59:34 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:38:31 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < len)
