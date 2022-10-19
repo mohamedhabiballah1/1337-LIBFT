@@ -6,55 +6,51 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 14:44:13 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/11 21:04:15 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:48:39 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
+#include "libft.h"
 
-int check(char c, const char *set)
+int	check(char c, const char *set)
 {
-    int i;
-    i = 0;
-    while(set[i])
-    {
-        if(set[i] == c)
-            return(1);
-        i++;
-    }
-    return(0);
-}
-char *ft_strtrim(char const *str, char const *set)
-{
-    char *dst;
-    int i;
-    int start;
-    int end;
+	int	i;
 
-    start = 0;
-    while(str[start] && check(str[start], set))
-        start++;
-    end = strlen(str);
-    while((end > start) && check(str[end - 1], set))
-        end--;
-    dst = malloc(sizeof(char) * (strlen(str) - (end - start)));
-    if(dst == NULL)
-        return(NULL);
-    i = 0;
-    while(start < end)
-    {
-        dst[i] = str[start];
-        i++;
-        start++;
-    }
-    dst[i] = '\0';
-    return(dst);
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }
-int main()
+
+char	*ft_strtrim(char const *str, char const *set)
 {
-    const char str[] = "....hello world....";
-    const char set[] = ".";
-    printf("%s", ft_strtrim(str, set));
+	char	*dst;
+	int		i;
+	int		start;
+	int		end;
+	int		newlen;
+
+	start = 0;
+	while (str[start] && check(str[start], set))
+		start++;
+	end = ft_strlen(str);
+	while ((end > start) && check(str[end - 1], set))
+		end--;
+	newlen = (end - start);
+	dst = malloc(sizeof(char) * newlen + 1);
+	if (dst == NULL)
+		return (NULL);
+	i = 0;
+	while (start < end)
+	{
+		dst[i] = str[start];
+		i++;
+		start++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }
