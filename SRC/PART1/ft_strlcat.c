@@ -1,28 +1,37 @@
-#include<stdio.h>
-#include<string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/21 20:50:16 by mhabib-a          #+#    #+#             */
+/*   Updated: 2022/10/21 20:56:32 by mhabib-a         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+#include"libft.h"
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	unsigned char	*dst;
+	unsigned char	*sr;
 
-	i = 0;
-	j = 0;
-	while (dst[i] && i < size)
-		i++;
-	while (src[j] && (i + j + 1) < size)
+	dst = (unsigned char *) dest;
+	sr = (unsigned char *) src;
+	if (dst == NULL && sr == NULL)
+		return (NULL);
+	if (dst < sr)
 	{
-		dst[i + j] = src[j];
-		j++;
+		ft_memcpy(dst, sr, n);
 	}
-	if (i != size)
-		dst[i + j] = '\0';
-	return(i + strlen(src));
-}
-int main()
-{
-	char dst[] = "mohamed";
-	char src[] = "habiballah";
-	printf("%d", ft_strlcat(dst, src, 18));
-	return(0);
+	else
+	{
+		while (n > 0)
+		{
+			dst[n - 1] = sr[n - 1];
+			n--;
+		}
+	}
+	return (dst);
 }
