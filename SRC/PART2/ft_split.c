@@ -66,9 +66,8 @@ char	**lenwords(char const *s, char c, int words, char **str)
 			i++;
 			len++;
 		}
-		len = (len + 1);
-		str[j] = malloc(sizeof(char *) * len);
-		putword(*str, s, len, i);
+		str[j] = malloc(sizeof(char *) * len + 1);
+		putword(str[j], s, len, i);
 		j++;
 		len = 0;
 	}
@@ -86,27 +85,4 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	lenwords(s, c, i, str);
 	return (str);
-}
-void	ft_print_result(char const *s)
-{
-	int		len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(1, s, len);
-}
-int main()
-{
-    char	**tabstr;
-	int		i;
-
-    tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ');
-	while (tabstr[i] != NULL)
-	{
-		ft_print_result(tabstr[i]);
-		write(1, "\n", 1);
-		i++;
-	}
-    return(0);
 }
