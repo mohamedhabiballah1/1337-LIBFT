@@ -71,6 +71,7 @@ char	**lenwords(char const *s, char c, int words, char **str)
 		j++;
 		len = 0;
 	}
+	str[j] = NULL;
 	return (str);
 }
 
