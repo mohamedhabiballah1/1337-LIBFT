@@ -6,7 +6,7 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:30:34 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/18 14:14:47 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:55:43 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	j = 0;
 	i = 0;
 	if (start >= ft_strlen(s))
-		return(ft_strdup("");
+		return (ft_strdup(""));
 	if (len > ft_strlen(s))
-		       len = ft_strlen(s);
+		len = ft_strlen(s);
 	str = malloc(sizeof(char) * len + 1);
 	if (str == NULL)
 		return (NULL);

@@ -1,5 +1,16 @@
-#include<stdio.h>
-#include<string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/23 23:42:39 by mhabib-a          #+#    #+#             */
+/*   Updated: 2022/10/23 23:53:28 by mhabib-a         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include"libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -10,19 +21,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	j = 0;
 	while (src[i] != '\0')
 		i++;
-	while(src[j] != '\0' && j < (size - 1))
+	if (size > 0)
 	{
-		dst[j] = src[j];
-		j++;
-	}
+		while (src[j] != '\0' && j < (size - 1))
+		{
+			dst[j] = src[j];
+			j++;
+		}
 	dst[j] = '\0';
+	}
 	return (i);
-}
-int main()
-{
-	char src[] = "mohamed";
-	char *dest;
-	size_t size = 4;
-	printf("%d", ft_strlcpy(dest, src, size));
-	return(0);
 }

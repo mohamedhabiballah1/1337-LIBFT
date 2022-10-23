@@ -6,7 +6,7 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:39:12 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/18 10:13:00 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:31:44 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t nitems, size_t size)
 {
 	void	*str;
 
+	if (nitems == SIZE_MAX && size == SIZE_MAX)
+		return (NULL);
 	str = malloc(sizeof(char) * ((nitems * size)));
 	if (str == NULL)
 		return (NULL);

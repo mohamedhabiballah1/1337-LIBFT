@@ -6,32 +6,27 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 20:50:16 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/21 20:56:32 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:23:07 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned char	*dst;
-	unsigned char	*sr;
+	size_t	i;
+	size_t	j;
 
-	dst = (unsigned char *) dest;
-	sr = (unsigned char *) src;
-	if (dst == NULL && sr == NULL)
-		return (NULL);
-	if (dst < sr)
+	i = 0;
+	j = 0;
+	while (dst[i] && i < size)
+		i++;
+	while (src[j] && (i + j + 1) < size)
 	{
-		ft_memcpy(dst, sr, n);
+		dst[i + j] = src[j];
+		j++;
 	}
-	else
-	{
-		while (n > 0)
-		{
-			dst[n - 1] = sr[n - 1];
-			n--;
-		}
-	}
-	return (dst);
+	if (i != size)
+		dst[i + j] = '\0';
+	return (i + ft_strlen(src));
 }

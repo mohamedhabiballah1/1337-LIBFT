@@ -6,7 +6,7 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 21:15:56 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/19 13:26:33 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/23 23:51:44 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ char	*ft_itoa(int n)
 {
 	char	*new;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	if (n >= 0)
 		new = ft_positif(n);
 	if (n < 0)
