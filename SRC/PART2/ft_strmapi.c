@@ -6,18 +6,20 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:27:26 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/18 13:33:45 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:08:45 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include<stdio.h>
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
 	char			*str;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	str = malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (str == NULL)
 		return (NULL);
@@ -28,4 +30,17 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	str[i] = '\0';
 	return (str);
+}
+char	ft_f(unsigned int i, char c)
+{
+		c -= 32;
+		return(c);
+}
+int main()
+{
+	char str[] = "mohamed";
+	char *s;
+	s = ft_strmapi(str, ft_f);
+	printf("%s", s);
+	return(0);
 }

@@ -6,13 +6,14 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:32:25 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/23 23:51:14 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/30 15:48:40 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include<stdio.h>
 
-int	count_words(char const *str, char c)
+static int	count_words(char const *str, char c)
 {
 	int	i;
 	int	count;
@@ -33,7 +34,7 @@ int	count_words(char const *str, char c)
 	return (count);
 }
 
-char	*putword(char *str, char const *s, int len, int z)
+static char	*putword(char *str, char const *s, int len, int z)
 {
 	int	i;
 
@@ -47,8 +48,14 @@ char	*putword(char *str, char const *s, int len, int z)
 	str[i] = '\0';
 	return (str);
 }
-
-char	**lenwords(char const *s, char c, int words, char **str)
+static char	**ft_free(char **str, int j)
+{
+	j = (j - 1);
+	while(j >= 0)
+		free(str[j]);
+	return(NULL);
+}
+static char	**lenwords(char const *s, char c, int words, char **str)
 {
 	int	i;
 	int	j;
@@ -67,6 +74,8 @@ char	**lenwords(char const *s, char c, int words, char **str)
 			len++;
 		}
 		str[j] = malloc(sizeof(char) * (len + 1));
+		if (str[j] == NULL)
+			return (ft_free(str, j));
 		putword(str[j], s, len, i);
 		j++;
 		len = 0;
@@ -80,10 +89,30 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	i = count_words(s, c);
 	str = malloc(sizeof(char *) * (i + 1));
 	if (str == NULL)
 		return (NULL);
-	lenwords(s, c, i, str);
+	if (!lenwords(s, c, i, str))
+	{
+		free(str);
+		return (NULL);
+	}
 	return (str);
+}
+
+int main()
+{
+	char s[] = "mohamed.habiballah....cwniwe.dcc.ec.edcwec.wc";
+	char c = '.';
+	int i = 0;
+	char **str = ft_split(s, c); 
+	while(str[i] != NULL)
+	{
+		printf("%s\n", str[i]);
+		i++;
+	}
+	return(0);
 }

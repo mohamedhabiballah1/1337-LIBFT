@@ -6,13 +6,13 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 21:15:56 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/23 23:51:44 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/25 15:19:06 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count(int c)
+static int	count(int c)
 {
 	int	i;
 
@@ -26,16 +26,16 @@ int	count(int c)
 	return (i);
 }
 
-char	*ft_positif(int c)
+static char	*ft_positif(int c)
 {
 	int		i;
 	char	*new;
 
 	i = count(c);
 	new = malloc(sizeof(char) * i + 1);
-	new[i] = '\0';
 	if (new == NULL)
 		return (NULL);
+	new[i] = '\0';
 	while (i > 0)
 	{
 		new[i - 1] = (c % 10) + 48;
@@ -45,7 +45,7 @@ char	*ft_positif(int c)
 	return (new);
 }
 
-char	*ft_negative(int c)
+static char	*ft_negative(int c)
 {
 	int		i;
 	char	*new;
@@ -55,9 +55,9 @@ char	*ft_negative(int c)
 	else
 		i = count(c);
 	new = malloc(sizeof(char) * i + 2);
-	new[i + 1] = '\0';
 	if (new == NULL)
 		return (NULL);
+	new[i + 1] = '\0';
 	new[0] = '-';
 	while (i > 0)
 	{

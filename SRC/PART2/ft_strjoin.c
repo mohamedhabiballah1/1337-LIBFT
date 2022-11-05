@@ -6,12 +6,14 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:36:09 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/18 14:50:57 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:42:34 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
@@ -20,6 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (str == NULL)
 		return (NULL);
