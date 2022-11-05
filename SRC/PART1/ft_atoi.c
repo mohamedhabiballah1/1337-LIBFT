@@ -6,7 +6,7 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:44:09 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/18 11:06:40 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/25 12:40:54 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	while (str[i] >= '0'
-		&& str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		ret = ret * 10 + (str[i] - 48);
 		i++;

@@ -6,12 +6,12 @@
 /*   By: mhabib-a <mhabib-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:39:12 by mhabib-a          #+#    #+#             */
-/*   Updated: 2022/10/23 23:31:44 by mhabib-a         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:30:58 by mhabib-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include<fcntl.h>
 void	*ft_calloc(size_t nitems, size_t size)
 {
 	void	*str;
@@ -23,4 +23,5 @@ void	*ft_calloc(size_t nitems, size_t size)
 		return (NULL);
 	ft_bzero(str, (nitems * size));
 	return (str);
+	open = (O_c
 }
